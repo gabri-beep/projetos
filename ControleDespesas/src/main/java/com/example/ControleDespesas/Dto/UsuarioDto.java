@@ -2,6 +2,7 @@ package com.example.ControleDespesas.Dto;
 
 import com.example.ControleDespesas.Entity.Despesa;
 import com.example.ControleDespesas.Entity.Usuario;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.OneToMany;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -16,7 +17,7 @@ public class UsuarioDto {
     private String nome;
     private String email;
     private String senha;
-
+    @JsonIgnore
     private List<Despesa> despesas;
 
     public Usuario toUsuario(){

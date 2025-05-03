@@ -1,5 +1,6 @@
 package com.example.ControleDespesas.Entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -21,6 +22,7 @@ public class Usuario {
     private String senha;
 
     @OneToMany(mappedBy = "usuario")
+    @JsonIgnore
     private List<Despesa> despesas;
 
 }
