@@ -32,3 +32,6 @@ Crie o banco no MySQL:
 
 ```sql
 CREATE DATABASE controle_despesas;
+
+### Diagrama de Classes
+![Diagrama_ControleDeDespesas](https://github.com/user-attachments/assets/563618f7-411d-40b0-9f8d-aa5d8b01c597)
