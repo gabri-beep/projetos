@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @RestController
 @RequestMapping("/despesa")
@@ -37,10 +38,30 @@ public class DespesaController {
         return despesaService.getByMesAno(mes, ano);
     }
 
+    @GetMapping("/{id}")
+    public ResponseEntity<DespesaDto> getById(@PathVariable Long id){
+        Optional<DespesaDto> despesaDtoOptional = despesaService.getById(id);
+        if (despesaDtoOptional.isPresent()){
+            return ResponseEntity.ok(despesaDtoOptional.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
+    }
+
     @PostMapping
     public ResponseEntity<DespesaDto> createDespesa(@RequestBody DespesaDto despesaDto){
         DespesaDto despesaDtoSave = despesaService.createDespesa(despesaDto);
         return ResponseEntity.status(HttpStatus.CREATED).body(despesaDtoSave);
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<DespesaDto> updateDespesa(@PathVariable Long id, DespesaDto despesaDto){
+        Optional<DespesaDto> despesaDtoOptional = despesaService.getById(id);
+        if (despesaDtoOptional.isPresent()){
+            return ResponseEntity.ok(despesaDtoOptional.get());
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     @DeleteMapping("/{id}")

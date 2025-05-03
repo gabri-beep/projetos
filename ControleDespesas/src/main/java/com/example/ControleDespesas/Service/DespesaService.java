@@ -11,6 +11,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class DespesaService {
@@ -21,6 +22,16 @@ public class DespesaService {
     //buscar todas as despesas
     public List<Despesa> getAll(){
         return despesaRepo.findAll();
+    }
+
+    public Optional<DespesaDto> getById(Long id){
+        Optional<Despesa> despesaOptional = despesaRepo.findById(id);
+        if (despesaOptional.isPresent()){
+            DespesaDto despesaDto = new DespesaDto();
+            return Optional.of(despesaDto.fromDespesa(despesaOptional.get()));
+        } else {
+            return Optional.empty();
+        }
     }
 
     // buscar despesas por mes e ano
