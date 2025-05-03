@@ -26,6 +26,11 @@ API REST desenvolvida com **Java 21** e **Spring Boot**, permitindo gerenciar us
 - Maven instalado
 - Postman (https://www.postman.com/downloads/)
 
+### Diagrama de Classes
+
+![Diagrama_ControleDeDespesas](https://github.com/user-attachments/assets/2f06662e-e0dd-4cbc-a169-56ec3ecfb8c5)
+
+
 ### Configuração do banco de dados
 
 Crie o banco no MySQL:
@@ -33,5 +38,4 @@ Crie o banco no MySQL:
 ```sql
 CREATE DATABASE controle_despesas;
 
-### Diagrama de Classes
-![Diagrama_ControleDeDespesas](https://github.com/user-attachments/assets/563618f7-411d-40b0-9f8d-aa5d8b01c597)
+
