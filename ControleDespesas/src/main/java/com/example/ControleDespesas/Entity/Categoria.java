@@ -1,5 +1,6 @@
 package com.example.ControleDespesas.Entity;
 
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,5 +19,6 @@ public class Categoria {
     private String nome;
 
     @OneToMany(mappedBy = "categoria")
+    @JsonManagedReference(value = "categoria-despesa")
     private List<Despesa> despesas;
 }
