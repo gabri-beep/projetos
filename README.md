@@ -31,6 +31,6 @@ API REST desenvolvida com **Java 21** e **Spring Boot**, permitindo gerenciar us
 Crie o banco no MySQL:
 
 ```sql
-CREATE DATABASE despesas;
-USE despesas;
+create database if not exists despesas;
+use despesas;
 
